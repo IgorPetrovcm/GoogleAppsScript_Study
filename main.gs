@@ -1,4 +1,4 @@
 function myFunction() {
-  let ss = SpreadsheetApp.getActive().getUrl();
-  Logger.log(ss);
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  Logger.log(sheet.getName());
 }
