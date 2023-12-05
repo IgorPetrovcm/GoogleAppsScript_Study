@@ -13,7 +13,20 @@ function myFunction() {
 function myFunction2() {
   let active_sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
   let start = active_sheet.getRange(1,1);
-  Logger.log(start.getRow())
   let end = active_sheet.getLastRow();
   Logger.log(end);
+}
+function myArray() {
+  let sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+  let start = sheet.getRange(1,1);
+  let end_row = sheet.getLastRow();
+  let end = sheet.getRange(end_row,1);
+  
+  let arr_items = [];
+  for (let i = 0; i < end.getRow() - start.getRow(); i+=1) {
+    arr_items.push(sheet.getRange(start.getRow() + i, start.getColumn()).getValue());
+  }
+  for (let i = 0; i < arr_items.length;i+=1) {
+    Logger.log(arr_items[i]);
+  }
 }
